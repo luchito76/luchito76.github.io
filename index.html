@@ -95,9 +95,9 @@ Fixed Navigation
       <!-- main nav -->
       <nav class="collapse navbar-collapse navbar-right">
         <ul id="nav" class="nav navbar-nav menu">
-          <li><a href="index.html">Inicio</a></li>          
+          <li><a href="index.html">Inicio</a></li>
           <li><a href="https://micrositio.bpn.com.ar/" target="blank">Club de Beneficios BPN</a></li>
-          <li><a href="postulate.html">Paquete Para Estudiantes</a></li>
+          <li><a href="#paquete">Paquete Para Estudiantes</a></li>
           <li><a href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
           <li><a href="red_contactos.html">Red de Contactos</a></li>
         </ul>
@@ -543,7 +543,8 @@ Start Call To Action
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h2>BPN</h2>
+          <h2>La educación superior es vital para la construcción de un futuro mejor. <br>
+            ¡Sé protagonista de la transformación de tus planes en una realidad!</h2>
           <!-- <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin bibendum auctor, <br> nisi elit consequat ipsum, nesagittis sem nid elit. Duis sed odio sitain elit.</p>
 				<a href="" class="btn btn-main">Contact Us</a> -->
         </div>
@@ -645,7 +646,8 @@ Start Call To Action
 =================================-->
   <section class="map">
     <!-- Google Map -->
-    <div id="map_canvas"></div>
+    <!-- <div id="map_canvas"></div> -->
+    <div id="map"></div>
   </section>
   <!--====  End of Google Map  ====-->
 
@@ -752,6 +754,41 @@ Start Call To Action
     }
   </script>
 
+  <script>
+    // Initialize and add the map
+    function initMap() {
+      
+      // The location of Uluru
+      var uluru = {
+        lat: -38.954566,
+        lng: -68.058793
+      };
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+        document.getElementById('map'), {
+          zoom: 14,
+          center: uluru
+        });
+
+      var mapType = new google.maps.StyledMapType(style, {
+        name: "Grayscale"
+      });
+      map.mapTypes.set('grey', mapType);
+      map.setMapTypeId('grey');
+      // The marker, positioned at Uluru
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+  <!--Load the API from the specified URL
+        * The async attribute allows the browser to render the page while the API loads
+        * The key parameter will contain your own API key (which is not needed for this tutorial)
+        * The callback parameter executes the initMap() function
+        -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBanM3ZlqVsjGr9EepppXSB4Ysmip6yWN0&callback=initMap">
+  </script>
 
 </body>
 

@@ -770,13 +770,13 @@ Start Call To Action
           center: uluru
         });
 
-      var mapType = new google.maps.StyledMapType(style, {
-        name: "Grayscale"
-      });
-      map.mapTypes.set('grey', mapType);
-      map.setMapTypeId('grey');
+     
       // The marker, positioned at Uluru
+      
       var marker = new google.maps.Marker({
+        title: 'BPN',
+        icon: 'plugins/google-map/images/marker1.png',
+        animation: google.maps.Animation.BOUNCE,
         position: uluru,
         map: map
       });
